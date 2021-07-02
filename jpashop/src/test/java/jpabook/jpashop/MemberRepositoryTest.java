@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MemberRepositoryTest {
+    // 테스트
     @Autowired
     MemberRepository memberRepository;
 
