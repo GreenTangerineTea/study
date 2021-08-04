@@ -1,17 +1,28 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop;
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-
+    driver-class-name: com.tmax.tibero.jdbc.TbDriver
+    url: jdbc:tibero:thin:@192.168.179.238:8629:tibero
+    username: TEST_SL
+    password: SL
   jpa:
     hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-#        show_sql: true
-        format_sql: true
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.OracleDialect
+    open-in-view: false
+    format-sql: true
+
+  server:
+    port: 8081
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+##        show_sql: true
+#        format_sql: true
 
 logging:
   level:
