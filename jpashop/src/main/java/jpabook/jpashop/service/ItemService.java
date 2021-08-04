@@ -31,10 +31,12 @@ public class ItemService {
         return findItem;
     }
 
+    @Transactional
     public List<Item> findItems() {
         return itemRepository.findAll();
     }
 
+    @Transactional
     public Item findOne(Long itemId) {
         return itemRepository.findOne(itemId);
     }

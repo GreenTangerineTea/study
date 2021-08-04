@@ -33,6 +33,7 @@ public class MemberService {
 
     }
 
+    @Transactional
     private void validateDuplicateMember(Member member) {
         // 문제가 생기면 EXCEPTION
         List<Member> findMembers = memberRepository.findByName(member.getName());

@@ -63,6 +63,7 @@ public class OrderService {
     /***
      * 검색
      */
+    @Transactional
     public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepository.findAllByString(orderSearch);
     }

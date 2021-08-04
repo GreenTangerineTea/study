@@ -8,26 +8,24 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javax.persistence.FetchType.LAZY;
-
 @Entity
 @Table(name="orders")
 @Getter @Setter
-
 public class Order {
 
     @Id @GeneratedValue
     @Column(name="order_id")
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne //(fetch = LAZY)
     @JoinColumn(name="member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL ) // order persist 하면 orderItem 도 persist
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER) // order persist 하면 orderItem 도 persist
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(fetch = LAZY, cascade = CascadeType.ALL) // order persist 하면 delivery 도 persist
+    @OneToOne(//fetch = LAZY,
+            cascade = CascadeType.ALL) // order persist 하면 delivery 도 persist
     @JoinColumn(name="delivery_id")
     private Delivery delivery;
 
